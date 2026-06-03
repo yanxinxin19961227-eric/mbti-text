@@ -8,6 +8,10 @@
 <meta property="og:title" content="MBTI 性格测试 · 你是哪一种灵魂角色？" />
 <meta property="og:description" content="3分钟测出你的MBTI性格角色，16种原型深度解读。看看你是守护者、统帅，还是造梦人？" />
 <meta property="og:type" content="website" />
+
+<!-- ============ Google AdSense 验证代码 ============ -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3755298057665449" crossorigin="anonymous"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet" />
@@ -456,7 +460,7 @@ ENTP:{name:'脑洞辩论家',tag:'没有什么观点，是不能拿来辩一辩�
   '你喜欢挑战常规——别人说"这事一直是这么做的"，你立刻想"为什么一定要这么做？"你能在 10 分钟里给一个新项目想出 20 个玩法，但能坚持把其中一个真正做完的概率，看你那天的心情。你的朋友既爱你又怕你——爱你的智商和创意，怕你下一句又把 ta 的观点拆得稀碎。'],
  voices:['等等，如果反过来想呢？','我不是抬杠，我只是喜欢把每个角度都掰开看。','规则就是用来被重新发明的。','无聊比失败更让我难以忍受。','我能想出 20 个玩法，但只有 1 个会做完。'],
  career:['创业与商业模式创新——你擅长无中生有','市场、策划、增长黑客类工作','咨询、谈判、辩论，思辨是你的主场','产品创新与跨界整合，你爱打破边界','投资、媒体、新兴行业的探索者'],
- pitfall:['爱开头不爱收尾，难以坚持到底','过度争辩，有时不自觉得罪了人','三分钟热度，缺乏深耕的耐心','忽视细节和执行，想法常停在空中','感情上喜欢挑战和新鲜，平淡期容易抽离']},
+ pitfall:['爱开头不爱收尾，难以坚持到底','过度争辩，有时不自觉得罪了人','三分钟热度,缺乏深耕的耐心','忽视细节和执行,想法常停在空中','感情上喜欢挑战和新鲜,平淡期容易抽离']},
 };
 
 var current = 0;
@@ -581,7 +585,6 @@ function fillList(id, a) {
 
 function restart() { startQuiz(); }
 
-/* ===== 分享逻辑：微信特殊处理 ===== */
 function isWeChat() {
   return /MicroMessenger/i.test(navigator.userAgent);
 }
@@ -592,12 +595,10 @@ function shareText() {
 }
 
 async function shareResult() {
-  // 微信内置浏览器：直接复制并提示，避免闪退
   if (isWeChat()) {
     copyForWeChat();
     return;
   }
-  // 其他场景：调用系统原生分享
   var d = {title: '我的MBTI性格角色', text: shareText(), url: location.href};
   if (navigator.share) {
     try { await navigator.share(d); }
