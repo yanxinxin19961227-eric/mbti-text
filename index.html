@@ -32,12 +32,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .wrap{max-width:820px;margin:0 auto;padding:0 24px}
 .serif{font-family:"LXGW WenKai","Noto Sans SC",serif}
-
-/* ---- 屏幕切换：全用 JS inline style 控制，避免CSS优先级冲突 ---- */
 .screen{animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
-/* ===== 落地页 ===== */
 #intro{min-height:100svh;flex-direction:column;justify-content:center;padding:50px 0 44px;position:relative}
 .eyebrow{font-size:1rem;letter-spacing:.32em;color:var(--ink-soft);font-weight:700;margin-bottom:18px}
 .hero-title{font-size:clamp(4.5rem,22vw,9rem);line-height:.95;font-weight:900;letter-spacing:.02em;color:var(--brand)}
@@ -63,7 +60,6 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
 .floaters{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
 .floaters span{position:absolute;font-family:"LXGW WenKai",serif;font-weight:700;opacity:.06;color:var(--ink)}
 
-/* ===== 测试页 ===== */
 #quiz{min-height:100svh;flex-direction:column;justify-content:center;padding:46px 0 70px}
 .progress-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
 .progress-head .q-idx{font-family:"LXGW WenKai",serif;font-weight:700;font-size:1.15rem}
@@ -89,7 +85,6 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
 .link-btn{background:none;border:none;cursor:pointer;color:var(--ink-soft);font-size:1.02rem;font-family:inherit;text-decoration:underline;text-underline-offset:4px}
 .link-btn:hover{color:var(--brand)}
 
-/* ===== 结果页 ===== */
 #result{padding:42px 0 130px}
 .r-hero{text-align:center;padding:48px 28px 52px;border-radius:var(--radius);color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .r-hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");opacity:.07;mix-blend-mode:overlay}
@@ -137,7 +132,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
 .share-zone p{color:var(--ink-soft);margin-bottom:28px;font-size:1.1rem}
 .share-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;
-  padding:14px 28px;border-radius:100px;font-size:1.02rem;opacity:0;pointer-events:none;transition:.35s;z-index:99}
+  padding:14px 28px;border-radius:100px;font-size:1.02rem;opacity:0;pointer-events:none;transition:.35s;z-index:99;max-width:88vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .retry-row{margin-top:34px;text-align:center}
 .ad-slot{margin:46px 0;min-height:130px;border:1.5px dashed var(--line);border-radius:14px;display:grid;place-items:center;
@@ -149,7 +144,6 @@ footer{text-align:center;padding:46px 24px 64px;color:var(--ink-soft);font-size:
 </head>
 <body>
 
-<!-- 落地页 -->
 <section id="intro" class="screen">
   <div class="floaters" id="floaters"></div>
   <div class="wrap">
@@ -171,7 +165,6 @@ footer{text-align:center;padding:46px 24px 64px;color:var(--ink-soft);font-size:
 
 <div class="wrap"><div class="ad-slot"><span>广告位 · Google AdSense（落地页底部）</span></div></div>
 
-<!-- 测试页 -->
 <section id="quiz" class="screen">
   <div class="wrap">
     <div class="progress-head">
@@ -193,7 +186,6 @@ footer{text-align:center;padding:46px 24px 64px;color:var(--ink-soft);font-size:
   </div>
 </section>
 
-<!-- 结果页 -->
 <section id="result" class="screen">
   <div class="wrap">
     <div class="r-hero" id="rHero">
@@ -253,7 +245,6 @@ footer{text-align:center;padding:46px 24px 64px;color:var(--ink-soft);font-size:
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* ===== 关键修复：用 inline style 控制显示，完全绕开 CSS 优先级问题 ===== */
 function showScreen(id) {
   ['intro','quiz','result'].forEach(function(s) {
     var el = document.getElementById(s);
@@ -266,14 +257,12 @@ function showScreen(id) {
   window.scrollTo(0, 0);
 }
 
-/* 初始化：只显示落地页 */
 (function init() {
   document.getElementById('intro').style.display = 'flex';
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('result').style.display = 'none';
 })();
 
-/* 落地页飘浮字母 */
 (function(){
   var L=['E','I','N','S','T','F','J','P'];
   var b=document.getElementById('floaters');
@@ -288,7 +277,6 @@ function showScreen(id) {
   }
 })();
 
-/* ===== 24题 ===== */
 var DIM_NAME={EI:'能量来源',SN:'认知方式',TF:'决策依据',JP:'生活节奏'};
 var QUESTIONS=[
   {dim:'EI',poles:['E','I'],q:'一场热闹的聚会结束后，你的状态更接近：',a:'意犹未尽、还想再续摊',b:'身心俱疲、只想回家独处'},
@@ -317,7 +305,6 @@ var QUESTIONS=[
   {dim:'JP',poles:['J','P'],q:'你更看重的是：',a:'把事情做完、有明确结论',b:'保持开放，不急着下定论'},
 ];
 
-/* ===== 字母释义 ===== */
 var LETTER={
   E:{t:'外向 · Extraversion',d:'你的能量来自外部世界。与人互动、热闹的氛围会让你越聊越精神；独处太久反而觉得空落落、像没插电。你习惯在表达中思考，话一出口，思路也跟着清晰起来。'},
   I:{t:'内向 · Introversion',d:'内向源于内心。比起社交狂欢，你更偏爱安静、熟悉的环境，独处是你给自己充电的方式。你倾向于先在脑子里想明白，再决定要不要说出来，深度对话远比寒暄更让你舒服。'},
@@ -342,7 +329,6 @@ function groupOf(c){
   return 'SP';
 }
 
-/* ===== 16型文案 ===== */
 var TYPES={
 ISTJ:{name:'磐石总管',tag:'秩序，是我对世界温柔的方式。',
  traits:['责任感强','重承诺','条理分明','务实可靠','坚韧','重视传统'],
@@ -473,7 +459,6 @@ ENTP:{name:'脑洞辩论家',tag:'没有什么观点，是不能拿来辩一辩�
  pitfall:['爱开头不爱收尾，难以坚持到底','过度争辩，有时不自觉得罪了人','三分钟热度，缺乏深耕的耐心','忽视细节和执行，想法常停在空中','感情上喜欢挑战和新鲜，平淡期容易抽离']},
 };
 
-/* ===== 测试逻辑 ===== */
 var current = 0;
 var answers = new Array(QUESTIONS.length).fill(null);
 
@@ -596,19 +581,43 @@ function fillList(id, a) {
 
 function restart() { startQuiz(); }
 
-/* ===== 分享 ===== */
+/* ===== 分享逻辑：微信特殊处理 ===== */
+function isWeChat() {
+  return /MicroMessenger/i.test(navigator.userAgent);
+}
+
 function shareText() {
   var r = window._result || {};
-  return '我的 MBTI 角色是「' + (r.name||'') + '」(' + (r.code||') ！你是哪一种灵魂角色？来测一测 👉');
+  return '我的 MBTI 角色是「' + (r.name || '') + '」(' + (r.code || '') + ')！你是哪一种灵魂角色？来测一测 👉';
 }
+
 async function shareResult() {
-  var d = {title:'我的MBTI性格角色', text:shareText(), url:location.href};
+  // 微信内置浏览器：直接复制并提示，避免闪退
+  if (isWeChat()) {
+    copyForWeChat();
+    return;
+  }
+  // 其他场景：调用系统原生分享
+  var d = {title: '我的MBTI性格角色', text: shareText(), url: location.href};
   if (navigator.share) {
-    try { await navigator.share(d); } catch(e) {}
+    try { await navigator.share(d); }
+    catch(e) { copyLink(); }
   } else {
     copyLink();
   }
 }
+
+function copyForWeChat() {
+  var txt = shareText() + ' ' + location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt)
+      .then(function(){ toast('已复制！请去聊天框长按粘贴分享 ✨'); })
+      .catch(function(){ toast('请长按地址栏复制链接分享'); });
+  } else {
+    toast('请长按地址栏复制链接分享');
+  }
+}
+
 function copyLink() {
   var txt = shareText() + ' ' + location.href;
   if (navigator.clipboard) {
@@ -619,12 +628,13 @@ function copyLink() {
     toast('请手动复制地址栏链接');
   }
 }
+
 function toast(m) {
   var t = document.getElementById('toast');
   t.textContent = m;
   t.classList.add('show');
   clearTimeout(window._tt);
-  window._tt = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  window._tt = setTimeout(function(){ t.classList.remove('show'); }, 2400);
 }
 </script>
 </body>
