@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>MBTI 性格测试 · 3分钟测出你的灵魂角色 | 16型人格深度解读</title>
+<meta name="description" content="只需24道题、3分钟，测出你的MBTI性格角色。16种灵魂原型深度解读：性格密码、现实中的你、职业高光与人生雷区。" />
+<meta property="og:title" content="MBTI 性格测试 · 你是哪一种灵魂角色？" />
+<meta property="og:description" content="3分钟测出你的MBTI性格角色，16种原型深度解读。看看你是守护者、统帅，还是造梦人？" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<!--
+============================================================
+  Google AdSense 接入位 ①（<head>内）
+  审核通过后取消注释并填入你的 ca-pub-XXXXXXXX
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+============================================================
+-->
+
+<style>
+  :root{
+    --paper:#f6f1e7; --paper-2:#efe7d6; --ink:#2c2722; --ink-soft:#5d564c;
+    --line:#d9cfba; --brand:#c2562b; --brand-deep:#9e3f1c; --teal:#3f74b0;
+    --g-analyst:#7b5ea7; --g-diplomat:#3f9d7c; --g-sentinel:#3f74b0; --g-explorer:#d79a2b;
+    --shadow:0 20px 55px -22px rgba(44,39,34,.5); --radius:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans SC",system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);
+    font-size:19px;line-height:1.9;overflow-x:hidden;
+    background-image:radial-gradient(circle at 18% 22%,rgba(194,86,43,.05),transparent 45%),
+      radial-gradient(circle at 82% 78%,rgba(63,116,176,.05),transparent 45%);
+  }
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  .serif{font-family:"LXGW WenKai","Noto Sans SC",serif}
+  .screen{display:none;animation:rise .55s cubic-bezier(.2,.7,.2,1) both}
+  .screen.active{display:block}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+  /* ===== 落地页 ===== */
+  #intro{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:50px 0 44px;position:relative}
+  .eyebrow{font-size:1rem;letter-spacing:.32em;color:var(--ink-soft);font-weight:700;margin-bottom:18px}
+  .hero-title{
+    font-size:clamp(4.5rem,22vw,9rem);line-height:.95;font-weight:900;letter-spacing:.02em;
+    color:var(--brand);
+  }
+  .hero-title small{display:block;font-size:.45em;color:var(--ink);letter-spacing:.03em;margin-top:.15em;font-weight:900}
+  .hero-archetype{
+    font-family:"LXGW WenKai",serif;font-size:clamp(1.25rem,4.8vw,1.65rem);
+    color:var(--ink-soft);margin-top:18px;font-weight:700;
+  }
+  .hero-sell{
+    display:inline-block;margin:30px 0 8px;
+    background:var(--ink);color:var(--paper);
+    padding:18px 30px;border-radius:18px;
+    font-size:clamp(1.4rem,5.8vw,2rem);
+    font-weight:900;font-family:"LXGW WenKai",serif;
+    box-shadow:var(--shadow);line-height:1.4;
+  }
+  .hero-sell .big{color:#ffd9a0;font-size:1.25em}
+  .hero-meta{display:flex;gap:32px;margin:32px 0 38px;flex-wrap:wrap}
+  .hero-meta div{font-size:1.02rem;color:var(--ink-soft)}
+  .hero-meta b{display:block;font-family:"LXGW WenKai",serif;font-size:2.3rem;color:var(--ink);font-weight:700;line-height:1}
+  .btn{appearance:none;border:none;cursor:pointer;font-family:"Noto Sans SC",sans-serif;
+    font-size:1.15rem;font-weight:700;color:#fff;background:var(--brand);
+    padding:18px 44px;border-radius:100px;box-shadow:var(--shadow);
+    transition:transform .25s,box-shadow .25s,background .25s;
+    display:inline-flex;align-items:center;gap:10px}
+  .btn:hover{transform:translateY(-3px);background:var(--brand-deep)}
+  .btn:active{transform:translateY(0)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+  .btn.ghost:hover{background:var(--paper-2);border-color:var(--ink)}
+  .btn.lg{font-size:1.35rem;padding:22px 52px}
+  .start-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .tiny{font-size:.95rem;color:var(--ink-soft)}
+  .floaters{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+  .floaters span{position:absolute;font-family:"LXGW WenKai",serif;font-weight:700;opacity:.06;color:var(--ink)}
+
+  /* ===== 测试页 ===== */
+  #quiz{padding:46px 0 70px;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+  .progress-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+  .progress-head .q-idx{font-family:"LXGW WenKai",serif;font-weight:700;font-size:1.15rem}
+  .progress-head .q-idx b{color:var(--brand);font-size:2.2rem}
+  .bar{height:9px;background:var(--paper-2);border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-deep));border-radius:10px;transition:width .4s cubic-bezier(.2,.7,.2,1)}
+  .q-prompt{font-family:"LXGW WenKai",serif;font-size:clamp(1.6rem,6vw,2.3rem);font-weight:700;line-height:1.45;margin:48px 0 36px;text-align:center}
+  .poles{display:flex;justify-content:space-between;gap:18px;margin-bottom:22px}
+  .pole{flex:1;font-size:1.08rem;font-weight:500;padding:16px 18px;border-radius:14px;background:#fff;border:1.5px solid var(--line);line-height:1.55}
+  .pole-a{text-align:left;border-left:5px solid var(--brand)}
+  .pole-b{text-align:right;border-right:5px solid var(--teal)}
+  .scale{display:flex;align-items:center;justify-content:center;gap:clamp(14px,5.5vw,34px);margin:14px 0 16px}
+  .dot{appearance:none;border:3px solid;background:transparent;border-radius:50%;cursor:pointer;
+    transition:transform .18s,background .18s,box-shadow .18s;display:block;flex:0 0 auto}
+  .dot.lg{width:56px;height:56px}.dot.md{width:44px;height:44px}.dot.mid{width:32px;height:32px}
+  .dot.a{border-color:var(--brand)} .dot.b{border-color:var(--teal)} .dot.n{border-color:var(--ink-soft)}
+  .dot:hover{transform:scale(1.15)}
+  .dot.a:hover,.dot.a.sel{background:var(--brand);box-shadow:0 0 0 7px rgba(194,86,43,.18)}
+  .dot.b:hover,.dot.b.sel{background:var(--teal);box-shadow:0 0 0 7px rgba(63,116,176,.18)}
+  .dot.n:hover,.dot.n.sel{background:var(--ink-soft);box-shadow:0 0 0 7px rgba(93,86,76,.15)}
+  .scale-cap{display:flex;justify-content:space-between;font-size:.95rem;color:var(--ink-soft);margin-bottom:8px}
+  .nav-row{margin-top:38px;display:flex;justify-content:space-between;align-items:center}
+  .link-btn{background:none;border:none;cursor:pointer;color:var(--ink-soft);font-size:1.02rem;font-family:inherit;text-decoration:underline;text-underline-offset:4px}
+  .link-btn:hover{color:var(--brand)}
+
+  /* ===== 结果页 ===== */
+  #result{padding:42px 0 130px}
+  .r-hero{text-align:center;padding:48px 28px 52px;border-radius:var(--radius);color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .r-hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");opacity:.07;mix-blend-mode:overlay}
+  .r-group-top{font-size:1.05rem;letter-spacing:.18em;opacity:.92;font-weight:500}
+  .r-name{
+    font-family:"LXGW WenKai",serif;
+    font-size:clamp(3.8rem,16vw,6.4rem);
+    font-weight:700;margin:14px 0 14px;line-height:1.02;
+    text-shadow:0 4px 20px rgba(0,0,0,.18);
+  }
+  .r-code{font-family:"LXGW WenKai",serif;font-size:clamp(1.8rem,8vw,2.8rem);letter-spacing:.5em;font-weight:700;opacity:.95;padding-left:.5em}
+  .r-tagline{font-size:1.22rem;opacity:.96;font-style:italic;margin-top:18px;line-height:1.6}
+
+  /* 首屏即看见的分享条 */
+  .share-top{
+    display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+    margin:24px 0 8px;padding:22px;background:var(--paper-2);border-radius:18px;
+    border:2px dashed var(--brand);
+  }
+  .share-top .hint{flex:1 0 100%;text-align:center;font-family:"LXGW WenKai",serif;font-size:1.2rem;color:var(--ink);margin-bottom:6px;font-weight:700}
+
+  /* 悬浮分享按钮（滚动时常驻） */
+  .float-share{
+    position:fixed;right:18px;bottom:24px;z-index:50;display:none;
+    background:var(--brand);color:#fff;border:none;
+    width:72px;height:72px;border-radius:50%;cursor:pointer;
+    box-shadow:0 12px 30px -8px rgba(194,86,43,.55);
+    font-size:1.65rem;font-weight:700;
+    transition:transform .25s;font-family:inherit;line-height:1;
+  }
+  .float-share.show{display:grid;place-items:center;animation:pop .4s ease both}
+  .float-share:hover{transform:scale(1.1)}
+  .float-share small{display:block;font-size:.7rem;margin-top:2px;font-weight:500;letter-spacing:.05em}
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+
+  .section{margin-top:50px}
+  .section h3{font-family:"LXGW WenKai",serif;font-size:clamp(1.7rem,6vw,2.1rem);font-weight:700;display:flex;align-items:center;gap:14px;margin-bottom:22px;line-height:1.3}
+  .section h3 .dot-h{width:14px;height:14px;border-radius:50%;background:var(--accent,var(--brand));flex:0 0 auto}
+  .section p{color:var(--ink);font-size:1.18rem;line-height:2}
+  .section p + p{margin-top:14px}
+  .lead{color:var(--ink-soft);font-size:1.08rem;margin-bottom:20px}
+
+  /* 性格密码 */
+  .codes{display:grid;grid-template-columns:1fr;gap:14px}
+  .code-card{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:22px 24px;display:flex;gap:20px;align-items:flex-start}
+  .code-letter{flex:0 0 auto;width:64px;height:64px;border-radius:16px;background:var(--accent,var(--brand));color:#fff;
+    font-family:"LXGW WenKai",serif;font-weight:700;font-size:2.3rem;display:grid;place-items:center}
+  .code-body b{font-family:"LXGW WenKai",serif;font-size:1.4rem;display:block;margin-bottom:4px;line-height:1.3}
+  .code-body span{color:var(--ink-soft);font-size:1.1rem;line-height:1.85}
+
+  .traits{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .chip{background:#fff;border:1.5px solid var(--line);border-radius:100px;padding:11px 22px;font-weight:500;font-size:1.05rem}
+
+  .voices{display:flex;flex-direction:column;gap:16px}
+  .voice{position:relative;background:#fff;border:1.5px solid var(--line);border-left:5px solid var(--accent,var(--brand));
+    border-radius:0 14px 14px 0;padding:20px 24px 20px 28px;font-family:"LXGW WenKai",serif;font-size:1.22rem;line-height:1.75}
+  .voice::before{content:"\201C";position:absolute;top:-4px;left:8px;font-size:2.8rem;color:var(--accent,var(--brand));opacity:.3;font-family:serif}
+
+  .cols{display:grid;grid-template-columns:1fr;gap:18px}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:26px}
+  .card h4{font-family:"LXGW WenKai",serif;font-size:1.5rem;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .card ul{list-style:none}
+  .card li{padding:13px 0 13px 30px;position:relative;color:var(--ink);font-size:1.1rem;line-height:1.8;border-bottom:1px dashed var(--line)}
+  .card li:last-child{border-bottom:none}
+  .card.glow li::before{content:"\2605";position:absolute;left:0;color:var(--g-diplomat);font-size:.95rem;top:16px}
+  .card.mine li::before{content:"\26A0";position:absolute;left:0;color:var(--brand);font-size:1.05rem;top:14px}
+
+  .share-zone{margin-top:54px;text-align:center;background:var(--paper-2);border:2px dashed var(--line);border-radius:var(--radius);padding:46px 28px}
+  .share-zone h3{font-family:"LXGW WenKai",serif;font-size:clamp(1.7rem,6vw,2rem);margin-bottom:12px;line-height:1.3}
+  .share-zone p{color:var(--ink-soft);margin-bottom:28px;font-size:1.1rem}
+  .share-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;
+    padding:14px 28px;border-radius:100px;font-size:1.02rem;opacity:0;pointer-events:none;transition:.35s;z-index:99}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .retry-row{margin-top:34px;text-align:center}
+
+  .ad-slot{margin:46px 0;min-height:130px;border:1.5px dashed var(--line);border-radius:14px;display:grid;place-items:center;
+    background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(217,207,186,.18) 12px,rgba(217,207,186,.18) 24px);
+    color:var(--ink-soft);font-size:.92rem;text-align:center;padding:20px}
+  .ad-slot span{opacity:.75}
+  footer{text-align:center;padding:46px 24px 64px;color:var(--ink-soft);font-size:.95rem;border-top:1px solid var(--line);margin-top:54px}
+  footer a{color:var(--brand)}
+
+  @media(min-width:640px){.cols{grid-template-columns:1fr 1fr}.codes{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- ===================== 落地页 ===================== -->
+<section id="intro" class="screen active">
+  <div class="floaters" id="floaters"></div>
+  <div class="wrap">
+    <div class="eyebrow">16 型人格 · 自我探索</div>
+    <h1 class="hero-title serif">MBTI<small>性格测试</small></h1>
+    <p class="hero-archetype">你，是哪一种灵魂角色？</p>
+    <div class="hero-sell">⏱ 只需 <span class="big">3 分钟</span><br>测出你的 MBTI 性格角色</div>
+    <div class="hero-meta">
+      <div><b>24</b>道题目</div>
+      <div><b>16</b>种角色</div>
+      <div><b>1–5</b>倾向评分</div>
+    </div>
+    <div class="start-row">
+      <button class="btn lg" onclick="startQuiz()">开始测试 →</button>
+      <span class="tiny">无需注册 · 即测即出结果</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="ad-slot"><span>广告位 ② · Google AdSense（落地页底部）</span></div></div>
+
+<!-- ===================== 测试页 ===================== -->
+<section id="quiz" class="screen">
+  <div class="wrap">
+    <div class="progress-head">
+      <div class="q-idx">第 <b id="qNum">1</b> / 24 题</div>
+      <div class="tiny" id="dimLabel"></div>
+    </div>
+    <div class="bar"><i id="barFill"></i></div>
+
+    <div class="q-prompt serif" id="qPrompt"></div>
+    <div class="poles">
+      <div class="pole pole-a" id="poleA"></div>
+      <div class="pole pole-b" id="poleB"></div>
+    </div>
+    <div class="scale" id="scale"></div>
+    <div class="scale-cap"><span>← 更符合左边</span><span>更符合右边 →</span></div>
+
+    <div class="nav-row">
+      <button class="link-btn" id="backBtn" onclick="prevQ()" style="visibility:hidden">← 上一题</button>
+      <button class="link-btn" onclick="restart()">重新开始</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 结果页 ===================== -->
+<section id="result" class="screen">
+  <div class="wrap">
+    <div class="r-hero" id="rHero">
+      <div class="r-group-top" id="rGroupTop"></div>
+      <div class="r-name serif" id="rName"></div>
+      <div class="r-code serif" id="rCode"></div>
+      <div class="r-tagline" id="rTagline"></div>
+    </div>
+
+    <!-- 首屏一眼可见的分享条 -->
+    <div class="share-top">
+      <div class="hint">📣 把你的角色发给朋友，看看 ta 是谁</div>
+      <button class="btn lg" onclick="shareResult()">📤 分享我的角色</button>
+      <button class="btn ghost" onclick="copyLink()">🔗 复制链接</button>
+    </div>
+
+    <div class="section">
+      <h3><span class="dot-h"></span>性格密码拆解</h3>
+      <p class="lead">你的四个字母，藏着你为人处世的底层逻辑——</p>
+      <div class="codes" id="rCodes"></div>
+      <div class="traits" id="rTraits"></div>
+    </div>
+
+    <div class="ad-slot"><span>广告位 ③ · Google AdSense（结果页·文章内 In-article）</span></div>
+
+    <div class="section">
+      <h3><span class="dot-h"></span>现实中的你</h3>
+      <div id="rReal"></div>
+    </div>
+
+    <div class="section">
+      <h3><span class="dot-h"></span>内心独白</h3>
+      <p class="lead">那些只有你自己听得见的心声——</p>
+      <div class="voices" id="rVoices"></div>
+    </div>
+
+    <div class="section">
+      <h3><span class="dot-h"></span>职业版图</h3>
+      <div class="cols">
+        <div class="card glow"><h4>✦ 你的高光领域</h4><ul id="rCareer"></ul></div>
+        <div class="card mine"><h4>⚠ 你的成长雷区</h4><ul id="rPitfall"></ul></div>
+      </div>
+    </div>
+
+    <div class="share-zone">
+      <h3>把这份「人格说明书」发给朋友</h3>
+      <p>看看 ta 是和你同款灵魂，还是正好和你互补 →</p>
+      <div class="share-row">
+        <button class="btn lg" onclick="shareResult()">📤 分享我的结果</button>
+        <button class="btn ghost" onclick="copyLink()">🔗 复制链接</button>
+      </div>
+    </div>
+
+    <div class="retry-row"><button class="link-btn" onclick="restart()">↺ 再测一次</button></div>
+  </div>
+</section>
+
+<!-- 滚动时常驻的悬浮分享按钮 -->
+<button class="float-share" id="floatShare" onclick="shareResult()">📤<small>分享</small></button>
+
+<footer class="wrap">
+  <p>本测试基于 MBTI 类型学理论，仅供自我探索与娱乐参考，不构成专业心理诊断。</p>
+  <p style="margin-top:8px">© <span id="yr"></span> MBTI 性格测试 · 你是哪一种灵魂角色？</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* 落地页飘浮字母 */
+(function(){const L=['E','I','N','S','T','F','J','P'];const b=document.getElementById('floaters');
+for(let i=0;i<10;i++){const s=document.createElement('span');s.textContent=L[Math.floor(Math.random()*L.length)];
+s.style.left=Math.random()*92+'%';s.style.top=Math.random()*92+'%';s.style.fontSize=(Math.random()*5+3)+'rem';
+s.style.transform='rotate('+(Math.random()*40-20)+'deg)';b.appendChild(s);}})();
+
+/* ===== 24题（每题 1-5 倾向评分） ===== */
+const DIM_NAME={EI:'能量来源',SN:'认知方式',TF:'决策依据',JP:'生活节奏'};
+const QUESTIONS=[
+ {dim:'EI',poles:['E','I'],q:'一场热闹的聚会结束后，你的状态更接近：',a:'意犹未尽、还想再续摊',b:'身心俱疲、只想回家独处'},
+ {dim:'EI',poles:['E','I'],q:'遇到一个难题，你更倾向于：',a:'找人聊聊，边说边理清思路',b:'自己先静下来，想明白再说'},
+ {dim:'EI',poles:['E','I'],q:'在陌生的场合里，你往往是：',a:'主动搭话、很快自来熟',b:'安静观察、等别人先开口'},
+ {dim:'EI',poles:['E','I'],q:'理想的周末更接近：',a:'约一群人出去热闹一天',b:'窝在家做自己喜欢的事'},
+ {dim:'EI',poles:['E','I'],q:'团队讨论时，你常常是：',a:'带动气氛、把话题接住的人',b:'听得多、关键时才发言的人'},
+ {dim:'EI',poles:['E','I'],q:'让你恢复精力的方式更多是：',a:'和人互动、被外界点燃',b:'独处、安静地给自己充电'},
+ {dim:'SN',poles:['S','N'],q:'你更信任的是：',a:'亲眼所见、确凿的事实与细节',b:'直觉、以及背后的可能性'},
+ {dim:'SN',poles:['S','N'],q:'看完一部电影，你更在意：',a:'剧情讲清楚没、合不合理',b:'它在隐喻什么、想表达什么'},
+ {dim:'SN',poles:['S','N'],q:'做计划时，你先抓住的是：',a:'具体、能马上执行的步骤',b:'大方向和最终的愿景'},
+ {dim:'SN',poles:['S','N'],q:'别人更常说你是个：',a:'务实、脚踏实地的人',b:'点子多、爱畅想的人'},
+ {dim:'SN',poles:['S','N'],q:'学新东西，你习惯：',a:'从实例和动手操作入手',b:'先搞懂原理和概念'},
+ {dim:'SN',poles:['S','N'],q:'更容易吸引你的是：',a:'当下真实、可触摸的体验',b:'未来尚未发生的种种可能'},
+ {dim:'TF',poles:['T','F'],q:'做重要决定时，你更看重：',a:'逻辑是否成立、是否合理',b:'是否照顾到相关人的感受'},
+ {dim:'TF',poles:['T','F'],q:'朋友找你倾诉，你的第一反应是：',a:'帮 ta 分析、给出建议',b:'先共情、安慰 ta 的情绪'},
+ {dim:'TF',poles:['T','F'],q:'别人评价你，更常用的词是：',a:'理性、就事论事',b:'体贴、很有同理心'},
+ {dim:'TF',poles:['T','F'],q:'面对一场争执，你倾向于：',a:'摆事实讲道理，分出对错',b:'维护关系，先让气氛缓和'},
+ {dim:'TF',poles:['T','F'],q:'你更难以忍受的是：',a:'明显不合逻辑、自相矛盾',b:'冷漠、不顾他人感受的人'},
+ {dim:'TF',poles:['T','F'],q:'真心称赞别人时，你更会说：',a:'这件事你做得很对、很有效',b:'你真的好用心，特别棒'},
+ {dim:'JP',poles:['J','P'],q:'对于计划，你的态度是：',a:'喜欢提前安排好、按部就班',b:'喜欢留白、随机应变更自在'},
+ {dim:'JP',poles:['J','P'],q:'你的桌面或房间，通常是：',a:'整齐有序，东西各归各位',b:'看着有点乱，但我知道在哪'},
+ {dim:'JP',poles:['J','P'],q:'面对 deadline，你多半：',a:'早早完成，留出余量才安心',b:'临近期限灵感与效率齐爆发'},
+ {dim:'JP',poles:['J','P'],q:'出门旅行，你更喜欢：',a:'有一份排得明明白白的行程',b:'走到哪算到哪、随心而行'},
+ {dim:'JP',poles:['J','P'],q:'当计划突然被打乱，你会：',a:'有点焦虑，想尽快恢复秩序',b:'觉得有意思，乐于临场调整'},
+ {dim:'JP',poles:['J','P'],q:'你更看重的是：',a:'把事情做完、有明确结论',b:'保持开放，不急着下定论'},
+];
+
+/* ===== 性格密码 8 字母深度释义 ===== */
+const LETTER={
+ E:{t:'外向 · Extraversion',d:'你的能量来自外部世界。与人互动、热闹的氛围会让你越聊越精神；独处太久反而觉得空落落、像没插电。你习惯在表达中思考，话一出口，思路也跟着清晰起来。'},
+ I:{t:'内向 · Introversion',d:'内向源于内心。比起社交狂欢，你更偏爱安静、熟悉的环境，独处是你给自己充电的方式。你倾向于先在脑子里想明白，再决定要不要说出来，深度对话远比寒暄更让你舒服。'},
+ S:{t:'实感 · Sensing',d:'你信任五感能确认的事实与细节，脚踏实地，更关注此刻真实发生的事，而不是悬空的可能。你做事讲究有迹可循、有据可查，"先看到才相信"是你的本能。'},
+ N:{t:'直觉 · iNtuition',d:'你着迷于现象背后的含义与可能性，习惯透过表面看本质，总想得比眼前更远一些。一个细节能让你联想出一整张关系网，"它可能会变成什么样"对你比"它现在是什么样"更有吸引力。'},
+ T:{t:'思考 · Thinking',d:'做决定时你优先讲逻辑、看客观，对错分明，追求公正与一致，胜过迁就一时的情面。你不是没感情，只是更相信——把事情想清楚，对所有人都是最负责的方式。'},
+ F:{t:'情感 · Feeling',d:'你以人和感受为重，决定前会先掂量它对每个人的影响，珍视和谐、共情与被理解。你相信一个决定如果伤了人，再"正确"也不算真的正确。'},
+ J:{t:'判断 · Judging',d:'你偏爱确定与秩序，提前规划、按部就班会让你安心，悬而未决的事最让你心痒。你享受"把事情完成"的踏实感，未读消息、未完事项都会让你坐立难安。'},
+ P:{t:'感知 · Perceiving',d:'你崇尚灵活与开放，喜欢留有余地、随机应变，过早被计划框死会让你浑身不自在。你相信最好的可能往往出现在意料之外，所以宁愿先保持开放。'},
+};
+
+const GROUP={NT:{name:'分析家',color:'var(--g-analyst)'},NF:{name:'外交官',color:'var(--g-diplomat)'},
+ SJ:{name:'守护者',color:'var(--g-sentinel)'},SP:{name:'探索者',color:'var(--g-explorer)'}};
+function groupOf(c){if(c[1]==='N'&&c[2]==='T')return'NT';if(c[1]==='N'&&c[2]==='F')return'NF';if(c[1]==='S'&&c[3]==='J')return'SJ';return'SP';}
+
+/* ===== 16型深度文案（每型双段"现实中的你"+5句独白+5项职业+5个雷区） ===== */
+const TYPES={
+ISTJ:{name:'磐石总管',tag:'秩序，是我对世界温柔的方式。',
+ traits:['责任感强','重承诺','条理分明','务实可靠','坚韧','重视传统'],
+ real:[
+  '你是同事眼里"最让人放心的那个人"。交给你的事从不需要催第二遍——deadline 你比谁都记得清楚，流程节点、规章细节都心里有数。你的电脑文件按年份月份分类，命名规范统一；笔记本上写满了核对清单。别人嫌繁琐的流程，在你看来正是把事情做对的底气。',
+  '生活里你低调而规律，作息几乎雷打不动，不爱凑热闹，却总在关键时刻——同事临时请假、项目突发漏洞——默默把烂摊子收拾干净。你从不指望被夸奖，但每当系统平稳运行、账目分毫不差的那一刻，你心里会有一种踏实的、不需要任何人知道的满足感。'],
+ voices:['答应过的事，砸锅卖铁也要兑现。','规矩不是用来烦人的，是用来让一切不出错的。','我不太会说，但我把你的事记在心里、做在手上。','别人靠灵感，我靠流程和记录。','看到事情按部就班地完成，是我最大的安心。'],
+ career:['财务、审计、法务——你的严谨在这里是稀缺的硬通货','运维、质检、工程——长期稳定输出的岗位非你莫属','项目与流程管理——你能把一团乱麻理成清晰的进度表','行政、合规、风控——默默撑起全局的中坚位置','制造业与传统行业的中坚管理层'],
+ pitfall:['太固守"一直都这么做"，对新方法本能抗拒','不善表达情感，常被误读成冷漠、不近人情','容易把高标准强加给别人，显得苛刻挑剔','只顾埋头做事，疏于为自己争取认可与晋升','面对模糊、不确定的局面会异常焦虑']},
+
+ISFJ:{name:'暖心守护者',tag:'我把在意的人，都默默护在身后。',
+ traits:['体贴入微','尽职尽责','记忆力强','温柔细腻','默默付出','重视传统'],
+ real:[
+  '你是那种"不用开口就被照顾到"的存在。你能敏锐察觉别人没说出口的需要——朋友皱了一下眉，你立刻递过去一杯温水；同事最近状态不对，你不动声色地接过了 ta 手上的活。你记得每个人的小习惯：谁不吃香菜、谁咖啡要不加糖、谁那天因为什么事情情绪低落。',
+  '你的善意安静而绵长，常常付出很多却从不声张。聚会上你不是最闪亮的那个，但散场时大家会想起"还好有你"。但你也容易把别人的事放在自己前面——明明已经很累，朋友一个电话还是会打车赶过去；明明心里很不舒服，也宁可笑着说"没关系"。受了委屈，你往往一个人默默消化，连发条朋友圈也都要设分组。'],
+ voices:['你不用说，我大概也猜得到你需要什么。','只要大家都好好的，我累一点没关系。','我记得你不开心的那天，也记得你随口说过喜欢的东西。','拒绝别人，比自己再累一点还要难。','我害怕变化，更害怕让在乎的人失望。'],
+ career:['护理、医疗、康复——你的细心与耐心能真正治愈人','教育、幼教——你懂得守护一个人慢慢长大','人力、行政、客服——支持型岗位里你是定海神针','非营利与社会服务——把善意变成职业的最佳归宿','心理陪伴、临终关怀等需要深度共情的领域'],
+ pitfall:['不懂得拒绝别人，答应得太多、累垮自己','凡事往心里去，过度内耗、反复自我怀疑','回避冲突，把委屈和不满都咽进肚子里','抗拒剧烈变化，习惯被打破时格外不安','付出后渴望被看见，没被看见时默默受伤']},
+
+ESTJ:{name:'铁腕统筹官',tag:'把目标交给我，我把它变成结果。',
+ traits:['执行力强','果断','组织力出色','重效率','直言不讳','原则感强'],
+ real:[
+  '你是天生的"主心骨"。会议室里如果大家光讨论不落地，你三句话就能定下来"谁、做什么、什么时候交"。你的日程精确到 15 分钟，待办事项有优先级标签，连家庭聚餐你都能提前订好餐厅、规划好动线。你看到混乱就想理顺，看到目标就想拆成步骤往前推。',
+  '朋友圈里你是"靠谱"的代名词——办婚礼找你做总协调，凑局聚餐找你做发起人。你说一不二、雷厉风行，团队里有你在，事情就稳了。你最受不了的是反复扯皮、议而不决，那种时候你会直接拍板："就这样定，有问题落地再说。"'],
+ voices:['别光讨论了，先把谁做什么、什么时候完成定下来。','规则定了就该遵守，对事不对人。','与其抱怨，不如动手把它解决掉。','我没耐心听借口，给我结果就行。','所有人都有所属位置，事情才能跑得动。'],
+ career:['运营、生产、供应链——把复杂系统跑得高效有序','企业管理与创业——你天生属于做决策的位置','销售团队与项目负责人——带队冲锋你最在行','军警、法务等讲纪律、重执行的领域','政府、组织管理等需要统筹大盘的岗位'],
+ pitfall:['过于强势，容易压过别人的声音和感受','缺乏耐心，对低效和含糊几乎零容忍','认定的事很难被说服，显得固执','把工作看得太重，忽略了情感的经营','不轻易承认自己错了，亲密关系里容易受伤']},
+
+ESFJ:{name:'人间热心肠',tag:'让身边每个人都被照顾到，是我的本能。',
+ traits:['热情','善协调','重视和谐','尽责','有人情味','顾家'],
+ real:[
+  '你是任何群体里的"黏合剂"。你记得每个朋友的生日，记得同事孩子开学的日子，新人入职第一天你已经默默准备好了奶茶。聚会上你是张罗一切的那个——订座、点菜、AA、催大家发位置，所有人都觉得"有你在就放心"。',
+  '被需要会让你由衷快乐，你乐于扮演那个温暖的中心。但你也太在意别人的评价——气氛突然变冷，你第一个反思是不是自己刚才说错了什么；朋友几小时没回消息，你会反复在心里复盘哪里得罪了 ta。你给得很多，也渴望被同等温柔地接住。'],
+ voices:['大家开心，我就开心。','这事我来张罗，你们放心交给我。','是不是我哪里没做好，气氛才变僵的？','被需要的感觉，比被夸更让我安心。','请你也偶尔回头看看我，好吗。'],
+ career:['教育、医护——你的温暖让人愿意靠近、信任','活动策划、公关——把人和人连起来是你的天赋','客户关系与社群运营——你天生懂人心','零售、餐饮等高互动服务业的明星员工','行政与团队文化建设的关键角色'],
+ pitfall:['太在意他人评价，容易患得患失','回避冲突，难以坚定地表达不同意见','付出后渴望回报，落空时格外受伤','对批评异常敏感，一句话能难过很久','把"被需要"当成自我价值，独处时容易空虚']},
+
+ISTP:{name:'冷静的拆解师',tag:'给我一个问题，我先把它拆开看看。',
+ traits:['冷静','动手能力强','务实','独立','临危不乱','好奇心强'],
+ real:[
+  '你像一把冷静又锋利的瑞士军刀。话不多，但动手能力极强——朋友家路由器坏了、车子打不着火、电脑突然蓝屏，你过去看几眼就能搞定。你享受拆解东西的过程，喜欢看一个复杂系统在你手下被一点点理清。',
+  '日常生活里你低调、独立，讨厌被管、讨厌没意义的会议。规矩太多反而碍你的事，你更相信"先动手试试看"。危机现场你往往是那个最靠谱的实干派——别人手忙脚乱时，你已经默默把问题拆开、找到症结。你不太说情话，但你会在朋友凌晨求助时一句话不问就出门去帮忙。'],
+ voices:['少说话，让我先弄明白它怎么运作的。','规矩太多反而碍事，能解决就行。','别替我安排，我有自己的节奏。','与其聊它，不如上手试一下。','别问我感受，问我怎么搞定它。'],
+ career:['工程、机械、IT——把东西拆开再修好是你的本能','急救、消防、飞行等高压实操，你越乱越冷静','手艺、工匠类职业，让你在动手中找到心流','数据分析与故障排查，逻辑与现场感兼备','极限运动、户外探险等高强度独立工作'],
+ pitfall:['不爱沟通，长期规划和情感表达常常缺位','容易喜新厌旧，对一件事三分钟热度','不喜被承诺绑住，亲密关系里显得疏离','对情绪化的话题缺乏耐心，容易回避','遇到必须靠"软沟通"解决的事会不知所措']},
+
+ISFP:{name:'自在的造梦人',tag:'我用自己的方式，安静地热爱着世界。',
+ traits:['敏感细腻','崇尚自由','审美出众','温和','活在当下','重视真实'],
+ real:[
+  '你是个低调的浪漫主义者。一片好看的云、一束斜照进窗的阳光、一首突然对味的歌，都能让你停下来好好待几秒钟。你对美和感受有天生的雷达，朋友圈里发的照片总有一种说不清的味道——别人拍的是事物，你拍的是心情。',
+  '你不爱争抢、崇尚自由，最怕被框死。你不太擅长用语言表达爱，但会默默记住对方喜欢的牌子、默默把对方爱吃的菜留出来。外表安静，内心却藏着整片细腻汹涌的世界——你的快乐和难过都比别人更深，只是不会大声说出来。'],
+ voices:['我不太会说，但我会用做的告诉你。','别催我、别框我，我会以自己的节奏盛开。','美好的瞬间，值得我停下来好好感受。','我表面云淡风轻，心里其实波涛汹涌。','我可以小声地坚持，但不会大声地抗议。'],
+ career:['设计、艺术、音乐——你的审美就是核心竞争力','摄影、手作、美食——把感受变成可触摸的作品','护理、康复等温柔的关怀型职业','自由职业与个人创作，让你按自己的节奏盛开','花艺、空间设计、生活方式品牌等慢节奏行业'],
+ pitfall:['过度回避冲突和压力，宁愿默默退让','缺乏长期规划，容易随波逐流','自我评价偏低，遇挫时陷入内耗','难以适应高强度、强竞争的环境','情绪一旦低落，会持续很久才走出来']},
+
+ESTP:{name:'破局先锋',tag:'机会转瞬即逝，我向来先冲再说。',
+ traits:['行动力强','胆大机敏','善应变','精力旺盛','现实主义','享受刺激'],
+ real:[
+  '你是天生的行动派。胆大、机敏、反应极快——别人还在权衡利弊时，你已经下场试了一把。你不信纸上谈兵，相信"亲眼看一眼、亲手摸一下"才能看清局势。朋友眼里你是"敢想敢干"的那个，常常在大家还在犹豫时，你已经把死局盘活了。',
+  '你越是混乱越兴奋，太平淡的日子反而让你坐立难安。你享受肾上腺素、追求刺激，喜欢站在聚光灯下处理突发状况。你的口头禅是"先干起来，边干边调整"，你相信机会一定是给敢冲的人——犹豫的成本，比试错的成本高得多。'],
+ voices:['想那么多干嘛，先干起来再调整。','规则是给胆小的人定的。','给我个舞台，我能把全场点燃。','犹豫是最贵的成本，机会等不了人。','失败没什么，重新来过就是了。'],
+ career:['销售、谈判、商务拓展——临场反应就是你的武器','创业、投资等高风险高回报的舞台','应急、体育、户外等需要肾上腺素的领域','危机公关与现场指挥，越乱你越清醒','直播、主持、表演等需要现场感染力的行业'],
+ pitfall:['冲动行事，常常忽视长远后果','缺乏耐心，难以坚持枯燥重复的事','喜欢冒险，有时玩得过头','不愿被细节和规则约束，容易跳步','感情上容易追新鲜感，缺乏深度经营']},
+
+ESFP:{name:'天生的聚光灯',tag:'有我在的地方，就有热闹和笑声。',
+ traits:['热情外放','感染力强','活在当下','善交际','乐观','享受生活'],
+ real:[
+  '你是行走的快乐源泉。热情、外放、感染力满分——你一进屋，气氛立刻活了；你一开口，全场的注意力都会被吸过去。你天生懂得如何点燃气氛、取悦全场，朋友过生日总希望有你在场——因为你能把一场普通的聚会变成大家会记很久的回忆。',
+  '你活在当下、热爱生活，把平凡的每一天都过成一场小型演出——出门要搭最美的衣服、咖啡要选最好看的那家、连随手发个朋友圈都自带氛围感。有你在的地方，永远不缺笑声和热闹。但你也害怕安静，怕一个人待着的时候内心冒出来的那些复杂情绪。'],
+ voices:['人生苦短，当然要尽兴地活！','看到大家笑，我浑身都是劲儿。','别让我闲着，也别让气氛冷下来。','今天的快乐今天就要兑现，明天的事明天再说。','别问我以后，问我现在过得开不开心。'],
+ career:['演艺、主持、直播——舞台天生为你而设','活动策划与娱乐行业，你就是气氛本身','销售、市场、公关——感染力即生产力','旅游、餐饮等体验型服务，你让人宾至如归','时尚、美妆、生活方式博主等高表达性职业'],
+ pitfall:['容易冲动消费，缺乏长远规划','难以专注枯燥、需要持久耐心的任务','太在意他人目光，情绪随评价起伏','回避严肃问题和负面情绪，报喜不报忧','一旦冷清下来，容易陷入空虚和焦虑']},
+
+INFJ:{name:'沉默的引路人',tag:'我看得见，你没说出口的那部分。',
+ traits:['洞察力强','理想主义','深刻','富同理心','坚持信念','重视意义'],
+ real:[
+  '你是稀有的理想主义者，安静却深刻。你常常能一眼看穿别人没说出口的状态——朋友嘴上说"没事"，你心里已经知道发生了什么；同事在会议上不动声色，你能感觉到 ta 的不安。理解人心的能力对你近乎本能。',
+  '你为意义而活，渴望让世界变好一点点，哪怕只是身边人的那一小片。外表平和，内心却燃着一团温柔又执拗的火。你需要大量独处去消化自己接收到的一切——一场长聚会、一次共情过头的对话，都可能让你"宕机"几天。你看似随和，但底线一旦被触碰，会一言不发地把那个人从生命里删掉，从此再不联系。'],
+ voices:['我好像总能感觉到别人内心真正的状态。','比起被很多人喜欢，我更想做对的事。','我需要独处，去消化我接收到的一切。','看似温和，但底线被踩，我会沉默地永远离开。','我的爱很深，也很有距离。'],
+ career:['心理咨询、教育、公益——把洞察变成对人的疗愈','作家、编剧——你笔下的人物有真实的灵魂','人才发展与组织文化建设','医疗、人文等带着使命感的深耕领域','艺术治疗、写作疗愈等深度内省型工作'],
+ pitfall:['理想定得太高，容易对现实和他人失望','付出过头后会突然抽离、对人"关门"','内耗严重，常陷入自我怀疑','不善直接表达需求，憋到临界才爆发','把别人理想化，期待落空时格外受伤']},
+
+INFP:{name:'温柔的理想家',tag:'我心里，有个不愿妥协的世界。',
+ traits:['理想主义','忠于内心','富想象力','善良','重视真实','情感丰沛'],
+ real:[
+  '你是骨子里的诗人。你的脑子里随时在播一部只有自己看得见的电影——脑补对话、想象未来、回放过去的某句话某个表情。你温柔、善良、忠于内心的价值，对世界怀着近乎天真的善意。',
+  '你看似柔软，却有一条不可触碰的原则底线——你可以妥协很多事，但不能违背心里那条线。你活在丰富的内心世界里，渴望真实、意义与共鸣；做没意义的事，会让你的灵魂一点点枯萎。你常常因为一首歌、一段文字、一个陌生人的故事突然湿了眼眶，那种被触动的瞬间，是你和世界确认彼此还在的方式。'],
+ voices:['我可以妥协很多事，但不能违背心里那条线。','我需要做有意义的事，否则灵魂会枯萎。','在我安静的外表下，藏着整片汹涌的海。','别人觉得我太敏感，但这就是我感知世界的方式。','一首歌、一句话，就能让我哭很久。'],
+ career:['写作、艺术、音乐——表达本身就是你的使命','心理、咨询、公益等真正助人的职业','内容、文化、人文研究领域','任何能让你认同其价值的创造性工作','疗愈写作、独立创作、个人品牌等深度自我表达'],
+ pitfall:['理想与现实的落差，带来反复的内耗','容易拖延，灵感难以落地成行动','过度敏感，一点小事也容易受伤','回避冲突和现实琐事，宁愿躲进内心','把对方理想化，遇到真实的不完美会幻灭']},
+
+ENFJ:{name:'点燃人心的领航者',tag:'我相信，每个人都能成为更好的自己。',
+ traits:['富感染力','善激励','有同理心','有领导力','温暖','使命感强'],
+ real:[
+  '你是天生的精神领袖。温暖、有魅力、极富感染力——你一开口，别人就愿意听；你一鼓励，别人就愿意试。你总能一眼看到对方身上的潜力，并由衷地想推 ta 一把。学生时代你是那个带学弟学妹的人，职场上你是那个带新人的人。',
+  '你为关系和成长而活，把成就别人当成自己的使命。走到哪里，你都自带一种让人愿意追随的凝聚力。但你也常常忽略自己——别人的情绪你接得稳稳的，自己的情绪却没人接。你害怕辜负那些信任你的人，所以一直撑着，直到某天突然崩溃，朋友们才发现"原来 ta 也会累"。'],
+ voices:['我看得到你的潜力，别轻易放弃自己。','把大家凝聚起来一起变好，是我最有成就感的事。','我渴望被需要，也害怕辜负信任我的人。','别人的情绪我都接得住，自己的却没人接。','我撑得越久，崩溃来得越突然。'],
+ career:['教育、培训、演讲——你天生会点燃别人','团队领导与组织发展，把人凝聚成战斗力','公关、品牌、社群——你懂得如何打动人心','心理与公益等以人为本的助人领域','HR 与组织文化建设，让团队有温度'],
+ pitfall:['太在意他人，常常忽略了自己的需要','过度付出，容易情感耗竭、心力交瘁','难以接受批评与正面冲突','把人理想化，期待落空时格外失落','长期扮演"那个稳的人"，自己却没地方崩溃']},
+
+ENFP:{name:'灵感发电机',tag:'这世界这么有趣，我哪坐得住。',
+ traits:['热情','好奇心强','富创意','善连接','自由奔放','感受力强'],
+ real:[
+  '你是热情四溢的点子王。一个新想法能让你眼睛发亮、滔滔不绝——你能把一次普通的散步聊成一个创业项目，把一部电影聊出十种人生隐喻。你的脑子像永远沸腾的开水，咕嘟咕嘟冒着泡。',
+  '你热爱探索、连接与新鲜感，最怕被困在一成不变的日子里。你一走进房间，整个空间都活了起来——你会主动认识新朋友，会突然在朋友圈分享一段奇怪的领悟。你情感丰沛、爱憎分明，喜欢一个人的时候特别热烈，但热度退去也会突然失去兴趣，让对方一头雾水。'],
+ voices:['哇这个好有意思，我们可以这样、还可以那样！','我讨厌被困在一成不变的日子里。','我对人和世界，永远充满好奇。','我喜欢起来很热烈，冷下来也很彻底。','别给我一眼望到头的人生。'],
+ career:['创意、广告、市场策划——脑洞就是生产力','创业与新项目孵化，从 0 到 1 你最来劲','内容创作、主持、自媒体，你天生会表达','培训、咨询等能启发和点燃他人的工作','跨界整合、新兴行业的探索者'],
+ pitfall:['想法太多，难以聚焦、落地执行','三分钟热度，常常半途而废','讨厌琐碎细节和重复性事务','情绪起伏大，容易被消耗、忽冷忽热','感情上一旦失去新鲜感容易抽离']},
+
+INTJ:{name:'幕后战略家',tag:'我早已在脑中，把整盘棋推演过一遍。',
+ traits:['战略思维','独立','理性','目标导向','高标准','深度思考'],
+ real:[
+  '你是冷静的远见者。在别人还在讨论时，你脑中早已把整盘棋推演了好几遍——三步之后会怎样、五步之后又会怎样、哪一种走法的胜率最高。你独立、理性、目标感极强，习惯站在高处俯视全局，再倒推出最优路径。',
+  '你不爱寒暄客套，社交在你眼里大多是无效消耗——比起十场酒局，你更愿意一个人安静地把那本厚书啃完。你不需要很多人认同，你只需要它是对的。朋友少，但都是经过你筛选的人；说话不多，但每一句都是想清楚的。你天生是个"操盘手"——下慢棋、谋长局、不动声色地把事情推到该到的位置。'],
+ voices:['在行动之前，我已经在脑子里跑完了所有可能。','低效和无意义的事，是对生命的浪费。','我不需要很多人认同，我只需要它是对的。','社交对我是一种带宽消耗。','我下慢棋，但我每一步都算过。'],
+ career:['战略、咨询、投资分析——看清趋势是你的本事','科研与系统性技术领域，深度钻研的乐土','产品、架构等需要顶层设计的位置','创业与长期布局型事业，你擅长下慢棋','二级市场、量化、商业操盘等深度博弈领域'],
+ pitfall:['过于自信，听不进不同意见','容易忽视他人情感，显得冷硬难近','对人对己都过分苛刻、标准极高','社交与团队协作上常显得疏离','把一切都"系统化"，亲密关系里显得没温度']},
+
+INTP:{name:'思想的探险家',tag:'我对"为什么"的兴趣，远大于"是什么"。',
+ traits:['逻辑严密','求知欲强','独立思考','创新','客观','喜欢钻研'],
+ real:[
+  '你是天生的思想家。一个有趣的问题能让你忘掉吃饭——你会把它拆开成无数个子问题，一个接一个地往下追问"为什么"。你的脑子里有一个永远在运转的逻辑沙盘，逻辑链条上但凡有一处不通，你都会停下来扣半天。',
+  '你比起"是什么"，更对"为什么"着迷得多；比起结论，更迷恋推导的过程本身。你常常一个人沉进脑内宇宙想上一整天，能想出别人压根想不到的角度。但你也常常忘了把想法落地——你脑子里有一百个未完成的项目、一千个未写出来的点子，它们大多停在"想清楚了，但还没动手"那一步。'],
+ voices:['这个结论的前提，真的站得住脚吗？','我不在乎权威怎么说，我只在乎它是否成立。','给我一个有趣的问题，我能想上一整天。','我脑子里有 100 个项目，落地的不到 10 个。','我不是高冷，是真的还没想完。'],
+ career:['科研、数学、理论研究——纯粹思考的乐园','编程、算法、系统设计，逻辑的用武之地','分析、研究、战略推演类工作','技术创新与底层架构，你爱啃硬骨头','哲学、写作、独立研究等深度脑力领域'],
+ pitfall:['想得多、做得少，执行力是短板','沉迷理论，容易脱离现实与落地','忽略人际与情感，显得不食人间烟火','严重拖延，难以给项目收尾','不喜欢被打扰，被催进度时会无声抗拒']},
+
+ENTJ:{name:'天生的统帅',tag:'目标已定，剩下的只是把它拿下。',
+ traits:['领导力强','果决','战略眼光','雄心','高效','掌控感强'],
+ real:[
+  '你是天生的指挥官。果决、雄心勃勃，领导力和战略眼光兼备——给你一个团队、一笔预算、一个目标，你能立刻拆出关键路径、找到关键人、敲定时间节点。你不惧挑战、追求卓越，障碍在你眼里只是用来跨过去的。',
+  '你能把愿景变成组织，再把组织变成实打实的战果。你不太能忍受低效——开会拖延、讨论绕弯、决策模糊，都会让你立刻接管话语权。你看待"做不到"的反应不是同情，而是"那我们换个能做到的人"。你在亲密关系里也常常不自觉地想"管理"——你爱得很深，但表达爱的方式经常是给对方规划人生。'],
+ voices:['别给我问题，给我方案和结果。','我天生就该站在需要做决定的位置上。','障碍只是用来被跨过去的。','我没法忍受低效，那是对所有人的不尊重。','我爱你，但你也得跟上我的节奏。'],
+ career:['企业管理与高层决策——你属于做决定的位置','创业、投资、商业操盘的主导者','战略咨询与组织变革的推动者','任何需要统筹与决断的领导岗位','大型项目总舵手、跨部门协同的核心枢纽'],
+ pitfall:['过于强势，容易压制不同声音','缺乏耐心，对低效几乎零容忍','忽视他人感受，显得咄咄逼人','把控制欲不自觉带进亲密关系','停不下来，把自己也熬干']},
+
+ENTP:{name:'脑洞辩论家',tag:'没有什么观点，是不能拿来辩一辩的。',
+ traits:['机敏善辩','创意爆棚','喜欢挑战','灵活','好奇','不喜常规'],
+ real:[
+  '你是机敏的"思想挑衅者"。聪明、善辩、脑洞大到溢出——你享受智力的交锋，常常能从意想不到的角度把问题掰开看："等等，如果反过来想呢？"是你的口头禅。你点子多到自己都追不上，永远停不下来，最怕的就是无聊。',
+  '你喜欢挑战常规——别人说"这事一直是这么做的"，你立刻想"为什么一定要这么做？"你能在 10 分钟里给一个新项目想出 20 个玩法，但能坚持把其中一个真正做完的概率，看你那天的心情。你的朋友既爱你又怕你——爱你的智商和创意，怕你下一句又把 ta 的观点拆得稀碎。'],
+ voices:['等等，如果反过来想呢？','我不是抬杠，我只是喜欢把每个角度都掰开看。','规则就是用来被重新发明的。','无聊比失败更让我难以忍受。','我能想出 20 个玩法，但只有 1 个会做完。'],
+ career:['创业与商业模式创新——你擅长无中生有','市场、策划、增长黑客类工作','咨询、谈判、辩论，思辨是你的主场','产品创新与跨界整合，你爱打破边界','投资、媒体、新兴行业的探索者'],
+ pitfall:['爱开头不爱收尾，难以坚持到底','过度争辩，有时不自觉得罪了人','三分钟热度，缺乏深耕的耐心','忽视细节和执行，想法常停在空中','感情上喜欢挑战和新鲜，平淡期容易抽离']},
+};
+
+/* ===== 逻辑 ===== */
+let current=0;
+let answers=new Array(QUESTIONS.length).fill(null);
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('floatShare').classList.toggle('show',id==='result');
+  window.scrollTo(0,0);
+}
+
+function startQuiz(){current=0;answers=new Array(QUESTIONS.length).fill(null);show('quiz');renderQ();}
+
+function renderQ(){
+ const q=QUESTIONS[current];
+ document.getElementById('qNum').textContent=current+1;
+ document.getElementById('dimLabel').textContent=DIM_NAME[q.dim];
+ document.getElementById('barFill').style.width=(current/QUESTIONS.length*100)+'%';
+ document.getElementById('qPrompt').textContent=q.q;
+ document.getElementById('poleA').textContent=q.a;
+ document.getElementById('poleB').textContent=q.b;
+ document.getElementById('backBtn').style.visibility=current===0?'hidden':'visible';
+ const cfg=[['lg','a'],['md','a'],['mid','n'],['md','b'],['lg','b']];
+ const scale=document.getElementById('scale');scale.innerHTML='';
+ cfg.forEach((c,i)=>{const btn=document.createElement('button');
+  btn.className='dot '+c[0]+' '+c[1]+(answers[current]===i?' sel':'');
+  btn.setAttribute('aria-label','倾向'+(i+1));
+  btn.onclick=()=>choose(i);scale.appendChild(btn);});
+}
+function choose(i){
+ answers[current]=i;
+ if(current<QUESTIONS.length-1){current++;renderQ();}
+ else{document.getElementById('barFill').style.width='100%';finish();}
+}
+function prevQ(){if(current>0){current--;renderQ();}}
+
+function calcType(){
+ const s={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
+ const w=[2,1,0,1,2];
+ answers.forEach((idx,qi)=>{
+  if(idx===null||idx===2)return;
+  const q=QUESTIONS[qi];
+  const pole=idx<2?q.poles[0]:q.poles[1];
+  s[pole]+=w[idx];
+ });
+ const ei=s.E>s.I?'E':(s.I>s.E?'I':'I');
+ const sn=s.N>s.S?'N':(s.S>s.N?'S':'N');
+ const tf=s.T>s.F?'T':(s.F>s.T?'F':'F');
+ const jp=s.J>=s.P?'J':'P';
+ return ei+sn+tf+jp;
+}
+
+function finish(){
+ const code=calcType();const t=TYPES[code];const g=GROUP[groupOf(code)];
+ document.documentElement.style.setProperty('--accent',g.color);
+ document.getElementById('rHero').style.background='linear-gradient(135deg,'+g.color+',color-mix(in srgb,'+g.color+' 65%, #000 35%))';
+ document.querySelectorAll('.dot-h').forEach(d=>d.style.background=g.color);
+ document.getElementById('rGroupTop').textContent=g.name+'型';
+ document.getElementById('rName').textContent='「'+t.name+'」';
+ document.getElementById('rCode').textContent=code.split('').join(' ');
+ document.getElementById('rTagline').textContent='“'+t.tag+'”';
+ const cbox=document.getElementById('rCodes');cbox.innerHTML='';
+ code.split('').forEach(ch=>{const L=LETTER[ch];const d=document.createElement('div');d.className='code-card';
+  d.innerHTML='<div class="code-letter" style="background:'+g.color+'">'+ch+'</div>'+
+   '<div class="code-body"><b>'+L.t+'</b><span>'+L.d+'</span></div>';cbox.appendChild(d);});
+ fillChips('rTraits',t.traits);
+ const real=document.getElementById('rReal');real.innerHTML='';
+ t.real.forEach(p=>{const x=document.createElement('p');x.textContent=p;real.appendChild(x);});
+ fillVoices('rVoices',t.voices);
+ fillList('rCareer',t.career);fillList('rPitfall',t.pitfall);
+ window._result={code,name:t.name};
+ show('result');
+}
+function fillChips(id,a){const e=document.getElementById(id);e.innerHTML='';a.forEach(x=>{const s=document.createElement('span');s.className='chip';s.textContent=x;e.appendChild(s);});}
+function fillVoices(id,a){const e=document.getElementById(id);e.innerHTML='';a.forEach(x=>{const d=document.createElement('div');d.className='voice';d.textContent=x;e.appendChild(d);});}
+function fillList(id,a){const e=document.getElementById(id);e.innerHTML='';a.forEach(x=>{const li=document.createElement('li');li.textContent=x;e.appendChild(li);});}
+function restart(){startQuiz();}
+
+function shareText(){const r=window._result||{};return '我的 MBTI 角色是「'+(r.name||'')+'」('+(r.code||'')+')！你是哪一种灵魂角色？来测一测 👉';}
+async function shareResult(){const d={title:'我的MBTI性格角色',text:shareText(),url:location.href};
+ if(navigator.share){try{await navigator.share(d);}catch(e){}}else{copyLink();}}
+function copyLink(){const txt=shareText()+' '+location.href;
+ if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>toast('已复制，去粘贴给朋友吧！')).catch(()=>toast('复制失败，请手动复制链接'));}
+ else{toast('请手动复制地址栏链接');}}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2200);}
+</script>
+</body>
+</html>
